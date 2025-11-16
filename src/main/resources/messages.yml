@@ -1,0 +1,153 @@
+# DisPhone Plugin Messages by Shake_1227
+# %prefix% は自動で先頭に付与されます。
+# %player% はプレイヤー名に、%number% は電話番号に置き換えられます。
+# & はカラーコードとして使用できます。
+
+prefix: "&8[&bDisPhone&8] &r"
+
+# コマンド関連
+no-permission: "%prefix%&cあなたにこのコマンドを実行する権限はありません。"
+phone-given: "%prefix%&aDisPhoneを受け取りました。"
+command-usage: "%prefix%&c不明なコマンドです。/dp <accept|deny|hangup|invite|mutetoggle|shareaccept>"
+invite-usage: "%prefix%&c不明なコマンドです。/dp invite <電話番号>"
+player-not-found-offline: "%prefix%&c該当プレイヤーが見つかりません。オフライン、または存在しないプレイヤーの可能性があります。"
+
+# 電話番号登録
+invalid-number-format: "%prefix%&c無効な形式です。8桁の数字で入力してください。"
+number-taken: "%prefix%&cその電話番号は既に使用されています。"
+register-success: "%prefix%&a電話番号を %number% として登録しました！"
+
+# 通話関連
+invalid-call-format: "%prefix%&c無効な電話番号形式です。020-XXXX-XXXX の形式で入力してください。"
+player-not-found: "%prefix%&cその電話番号のプレイヤーが見つかりませんでした。"
+player-in-call: "%prefix%&cあなた、または相手は現在通話中です。"
+not-linked: "%prefix%&cあなた、または相手のDiscordアカウントが連携されていません！"
+not-in-call: "%prefix%&cあなたは現在通話に参加していません。"
+not-in-call-invite: "%prefix%&c通話に参加していないため、他のプレイヤーを招待できません。"
+
+# 発着信・応答
+call-sent: "%prefix%&a%player% に発信します..."
+call-received: "%prefix%&e&l%player% から着信です！"
+call-accept-button: "&a&l[応答]"
+call-deny-button: "&c&l[拒否]"
+no-incoming-call: "%prefix%&cあなたへの着信はありません。"
+caller-offline: "%prefix%&c電話をかけてきた相手がオフラインになりました。"
+call-denied-target: "%prefix%&c着信を拒否しました。"
+call-denied-caller: "%prefix%&c%player% が着信を拒否しました。"
+
+# 通話中のイベント
+call-channel-name: "%player%のグループ通話"
+call-member-joined: "%prefix%&e%player% が通話に参加しました。"
+call-member-left: "%prefix%&e%player% が通話から退出しました。"
+call-ended: "%prefix%&c通話を終了しました。"
+call-ended-auto: "%prefix%&cチャンネルに誰もいなくなったため、通話が自動で終了しました。"
+call-ended-solo: "%prefix%&e通話相手が全員退出したため、通話を終了しました。"
+
+# 招待
+invite-sent: "%prefix%&a%player% を通話に招待しました。"
+invite-received: "%prefix%&e%player% からグループ通話への招待が届いています。"
+
+# ミュート
+mute-success: "%prefix%&7マイクをミュートにしました。"
+unmute-success: "%prefix%&aマイクのミュートを解除しました。"
+
+# 連絡先共有
+share-request-sent: "%prefix%&a%player% に連絡先の共有リクエストを送信しました。"
+share-request-received: "%prefix%&e%player% が連絡先の共有を求めています。"
+share-accept-button: "&a&l[承認]"
+share-request-expired: "%prefix%&c%player% への共有リクエストが時間切れになりました。"
+share-no-request: "%prefix%&cあなたへの共有リクエストはありません。"
+share-sharer-offline: "%prefix%&cリクエストの送信者がオフラインになりました。"
+share-accepted-target: "%prefix%&a%player% と連絡先を交換しました！"
+share-accepted-sharer: "%prefix%&a%player% がリクエストを承認し、連絡先を交換しました！"
+
+# GUI
+gui:
+  main:
+    title: "&3&lホーム画面"
+    call-item-name: "&a電話をかける"
+    call-item-lore:
+      - "&7電話番号を入力して"
+      - "&7プレイヤーに電話をかけれます。"
+    contacts-item-name: "&e連絡先"
+    contacts-item-lore:
+      - "&7登録済みの連絡先を確認します。"
+  contacts:
+    title: "&3&l連絡先リスト"
+    own-contact-name: "&b&lマイカード"
+    own-contact-lore:
+      - "&7クリックして近くのプレイヤーに"
+      - "&7連絡先を共有します。"
+    phone-number-lore:
+      - "&f電話番号: &7%number%"
+  share:
+    title: "&3&l連絡先を共有"
+    no-players-name: "&c近くにプレイヤーがいません"
+    no-players-lore:
+      - "&7連絡先を共有できる範囲内に"
+      - "&7誰もいません。"
+    player-lore:
+      - "&7クリックして共有リクエストを送信"
+  in-call:
+    title: "&3&l通話メニュー"
+    hangup-item-name: "&c&l通話を切る"
+    hangup-item-lore:
+      - "&7通話から退出します。"
+    mute-item-name: "&cマイクをミュート"
+    mute-item-lore:
+      - "&7マイクをミュートします。"
+    unmute-item-name: "&aミュートを解除"
+    unmute-item-lore:
+      - "&7マイクのミュートを解除します。"
+    invite-item-name: "&bメンバーを招待"
+    invite-item-lore:
+      - "&7現在の通話に他のプレイヤーを"
+      - "&7招待します。"
+
+# 金床GUI用のメッセージ
+anvil:
+  register:
+    title: "&3&l電話番号を登録"
+    text: "8桁の数字"
+  call:
+    title: "&3&l電話をかける"
+    text: "020-XXXX-XXXX"
+  invite:
+    title: "&3&l通話に招待"
+    text: "020-XXXX-XXXX"
+
+# Transceiver
+transceiver:
+  item-name: "&cTransceiver"
+  item-lore:
+    - "&6右クリックで周波数に接続/交信"
+    - "&f交信中に左クリックでメニューを開く"
+  given: "%prefix%&aトランシーバーを受け取りました。"
+  not-connected: "%prefix%&cどの周波数にも接続していません。"
+  invalid-frequency: "%prefix%&c周波数は数字で入力してください。"
+  connecting: "%prefix%&a周波数 %freq% Hz に接続しています..."
+  connected: "%prefix%&a周波数 %freq% Hz に接続しました。右クリックで交信できます。"
+  disconnected: "%prefix%&c周波数 %freq% Hz から切断しました。"
+  transmit-start: "%prefix%&a交信を開始しました。"
+  transmit-stop: "%prefix%&c交信を終了しました。"
+  channel-name: "無線: %player%"
+  anvil:
+    title: "&4&l周波数を入力"
+    text: "ヘルツ(Hz)"
+  gui:
+    menu:
+      title: "&4&lトランシーバーメニュー"
+      change-freq-name: "&e周波数を変更"
+      change-freq-lore:
+        - "&7接続する周波数を変更します。"
+      who-is-here-name: "&b参加者を表示"
+      who-is-here-lore:
+        - "&7同じ周波数にいるプレイヤーを"
+        - "&7一覧表示します。"
+      disconnect-name: "&c接続を切断"
+      disconnect-lore:
+        - "&7現在の周波数から切断します。"
+    who-is-here:
+      title: "&4&l参加者リスト"
+      no-one: "&7現在、この周波数には誰もいません。"
+

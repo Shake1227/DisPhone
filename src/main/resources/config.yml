@@ -1,0 +1,19 @@
+# DisPhone created by Shake
+
+# 電話として機能するアイテムの設定
+item:
+  name: "&bDisPhone"
+  lore:
+    - "&6&l通話ができる電話。"
+    - "&f&l右クリックで使用できる。"
+
+# 電話の機能に関する設定
+phone:
+  # 連絡先を他のプレイヤーと共有できる範囲（ブロック単位）
+  contact-share-range: 10
+
+# DiscordSRV 連携設定
+discord:
+  # 重要: 通話終了後にプレイヤーが戻されるボイスチャンネルのIDです。
+  # Discordでチャンネルを右クリックし「チャンネルIDをコピー」を選択してください。Discordの設定で開発者モードを有効にする必要があります。
+  lobby-voice-channel-id: "YOUR_LOBBY_VOICE_CHANNEL_ID_HERE"

@@ -1,0 +1,16 @@
+name: DisPhone
+version: 2.0.0
+main: com.shake1227.disphone.DisPhone
+api-version: 1.20
+author: Shake_1227
+description: A plugin that allows players to call each other via DiscordSRV.
+softdepend: [DiscordSRV]
+commands:
+  givephone:
+    description: DisPhoneアイテムを取得します。
+    usage: /givephone
+    permission: disphone.admin
+  disphone:
+    description: DisPhoneの各種操作を行います。
+    usage: /disphone <accept|deny|hangup|invite|mute|unmute|shareaccept>
+    aliases: [dp]
