@@ -156,7 +156,9 @@ public class CallHandler {
         if (vc == null) return;
         guild.retrieveMemberById(discordId).queue(member -> {
             if (member != null) {
-                guild.moveVoiceMember(member, vc).queue();
+                guild.moveVoiceMember(member, vc).queue(v -> {
+                    member.mute(false).queue();
+                });
                 vc.getManager().putMemberPermissionOverride(member.getIdLong(), EnumSet.of(Permission.VIEW_CHANNEL, Permission.VOICE_CONNECT), null).queue();
                 call.addParticipant(player.getUniqueId(), discordId);
                 callSessions.put(player.getUniqueId(), call);

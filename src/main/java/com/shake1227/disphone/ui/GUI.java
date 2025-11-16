@@ -1,6 +1,7 @@
 package com.shake1227.disphone.ui;
 
 import com.shake1227.disphone.DisPhone;
+import com.shake1227.disphone.command.GivePhoneCommand;
 import com.shake1227.disphone.manager.ConfigManager;
 import com.shake1227.disphone.manager.DataManager;
 import com.shake1227.disphone.utils.TransceiverChannel;
@@ -12,9 +13,11 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -110,12 +113,20 @@ public class GUI {
                 .map(entity -> (Player) entity)
                 .collect(Collectors.toList());
 
-        if (nearbyPlayers.isEmpty()) {
+        List<Player> filteredNearbyPlayers = nearbyPlayers.stream()
+                .filter(nearby -> !dataManager.getContacts(player.getUniqueId()).contains(nearby.getUniqueId()))
+                .filter(nearby -> Arrays.stream(nearby.getInventory().getContents())
+                        .filter(item -> item != null && item.hasItemMeta())
+                        .anyMatch(item -> item.getItemMeta().getPersistentDataContainer()
+                                .has(GivePhoneCommand.PHONE_KEY, PersistentDataType.STRING)))
+                .collect(Collectors.toList());
+
+        if (filteredNearbyPlayers.isEmpty()) {
             ItemStack noPlayersItem = createItem(Material.BARRIER, configManager.getMessage("gui.share.no-players-name"), configManager.getMessageList("gui.share.no-players-lore"));
             inv.setItem(22, noPlayersItem);
         } else {
             int slot = 0;
-            for (Player nearby : nearbyPlayers) {
+            for (Player nearby : filteredNearbyPlayers) {
                 if (slot >= 54) break;
                 ItemStack head = createPlayerHead(nearby,
                         "&a" + nearby.getName(),
